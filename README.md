@@ -24,6 +24,12 @@ python3 -m py-nvtool [options]
   --setmemoffset NUM            Set MEM clocks offset (MHz), 0 - default
 ```
 
+## Exemple
+
+```
+python3 -m py-nvtool --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
+```
+
 # Docs
 
 ### NVIDIA Device Commands
