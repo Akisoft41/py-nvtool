@@ -1,19 +1,20 @@
 # py-nvtool
 "Hiveos nvtool" en Python pour Linux et Windows
 
-
+A cause de la librairie nvml, ```--setmem``` ne fonctionne que pour les GPU série 30xx et suivantes
 
 # Ubuntu Install
 ```
 sudo apt install python3-pip
 python3 -m pip install nvidia-ml-py
+wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.1.0/py-nvtool.py
 ```
 
 # Run
 ```
-python3 py-nvtool.py [options]
+python3 -m py-nvtool [options]
 
-  -i|--index NUM                Query specified GPU only (can be used multiple times)
+  -i|--index NUM                Query specified GPU only
   -a|--all                      Get GPU infos 
   --setpl NUM                   Set GPU power limit (W), 0 - default
   --setcore NUM                 Set GPU locked clocks (MHz), 0 - default

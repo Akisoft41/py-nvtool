@@ -8,7 +8,7 @@ from pynvml import *
 
 def PrintInfo(handle):
   try:
-    #print(f"  BUS ID: {(handle)}")
+    #print(f"  BUS ID: {}")
     print(f"  NAME: {nvmlDeviceGetName(handle)}")
     print(f"  VBIOS: {nvmlDeviceGetVbiosVersion(handle)}")
     memory = nvmlDeviceGetMemoryInfo(handle)
