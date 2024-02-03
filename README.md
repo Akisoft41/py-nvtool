@@ -5,7 +5,8 @@ A cause de la librairie nvml, ```--setmem``` ne fonctionne que pour les GPU séri
 
 # Ubuntu Install
 ```
-sudo apt install python3-pip
+sudo su
+apt install python3-pip
 python3 -m pip install nvidia-ml-py
 wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.1.0/py-nvtool.py
 ```
