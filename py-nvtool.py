@@ -191,7 +191,11 @@ def set1(idx, setpl, setcore, setmem, setfan, setcoreoffset, setmemoffset):
 
 try:
   nvmlInit()
-  
+except NVMLError as error:
+  print(f"Error {error}")
+  sys.exit(1)
+
+try:
   if len(sys.argv) == 1:
     print(f"Driver Version: {nvmlSystemGetDriverVersion()}")
     all(-1)
