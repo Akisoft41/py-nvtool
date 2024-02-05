@@ -1,11 +1,26 @@
 # py-nvtool
 "Hiveos nvtool" en Python pour Linux et Windows
 
-A cause de la librairie nvml, ```--setmem``` ne fonctionne que pour les GPU série 30xx et suivantes
+A cause de la librairie nvml de Nvidia, ```--setmem``` ne fonctionne que pour les GPU série 30xx et suivantes
 
-# Run
+## Install
 ```
-python3 -m py-nvtool [options]
+wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.2.0/py-nvtool.py
+```
+
+#### Linux
+
+```
+chmod +x py-nvtool.py
+cp py-nvtool.py /usr/sbin/
+
+sudo py-nvtool.py [options]
+```
+
+
+## Run
+```
+py-nvtool.py [options]
 
   -i|--index NUM                Query specified GPU only
   -a|--all                      Get GPU infos 
@@ -17,13 +32,13 @@ python3 -m py-nvtool [options]
   --setmemoffset NUM            Set MEM clocks offset (MHz), 0 - default
 ```
 
-## Exemple
+### Exemple
 
 ```
-python3 -m py-nvtool --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
+py-nvtool.py --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
 ```
 
-# Docs
+## Docs
 
 ### NVIDIA Device Commands
 https://docs.nvidia.com/deploy/nvml-api/group__nvmlDeviceCommands.html

@@ -1,7 +1,4 @@
-# py-nvtool is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
-# py-nvtool is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-# You should have received a copy of the GNU General Public License along with py-nvtool. If not, see <https://www.gnu.org/licenses/>
-# Copyright (C) 2024 Pascal Akermann
+#!/usr/bin/env python3
 
 
 ############################################
@@ -4917,6 +4914,12 @@ def nvmlDeviceSetPowerManagementLimit_v2(device, powerScope, powerLimit, version
 ## py-nvtool.py
 ############################################
 
+# py-nvtool is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
+# py-nvtool is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with py-nvtool. If not, see <https://www.gnu.org/licenses/>
+# Copyright (C) 2024 Pascal Akermann
+
+
 def PrintInfo(handle):
   try:
     #print(f"  BUS ID: {}")
@@ -5020,10 +5023,17 @@ def set1(idx, setpl, setcore, setmem, setfan, setcoreoffset, setmemoffset):
         for i in range(nvmlDeviceGetNumFans(handle)):
           nvmlDeviceSetDefaultFanSpeed_v2(handle, i)
         print(f" ({nvmlDeviceGetTargetFanSpeed(handle, 0)} %)")
-      elif setfan > 0 and setfan <= 100:
-        print(f"  SET FAN SPEED: {setfan} % ", end='')
-        for i in range(nvmlDeviceGetNumFans(handle)):
-          nvmlDeviceSetFanSpeed_v2(handle, i, setfan)
+      elif setfan > 0:
+        if setfan <= 100:
+          print(f"  SET FAN SPEED: {setfan} % ", end='')
+          oldfan = nvmlDeviceGetTargetFanSpeed(handle, 0)
+          for i in range(nvmlDeviceGetNumFans(handle)):
+              nvmlDeviceSetFanSpeed_v2(handle, i, setfan)
+          newfan = nvmlDeviceGetTargetFanSpeed(handle, 0)
+          if oldfan == newfan:
+            print(f"was already set", end='')
+        else:
+          print(f"is not in range of 0 to 100", end='')
         print()
     except NVMLError as error:
       print(f" [{error}]")
