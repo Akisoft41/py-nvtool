@@ -3,14 +3,6 @@
 
 A cause de la librairie nvml, ```--setmem``` ne fonctionne que pour les GPU série 30xx et suivantes
 
-# Ubuntu Install
-```
-sudo su
-apt install python3-pip
-python3 -m pip install nvidia-ml-py
-wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.1.0/py-nvtool.py
-```
-
 # Run
 ```
 python3 -m py-nvtool [options]
@@ -43,5 +35,3 @@ https://pypi.org/project/nvidia-ml-py/
 ______________
 
 Ce projet est Open Source sous licence GPL-3.0-or-later
-
-Copyright (C) 2024 Pascal Akermann
