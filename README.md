@@ -50,7 +50,7 @@ py py-nvtool.py [options]
 #### Exemple
 
 ```
-sudo py-nvtool.py --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
+sudo py-nvtool --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
 ```
 
 
