@@ -4,24 +4,39 @@
 A cause de la librairie nvml de Nvidia, ```--setmem``` ne fonctionne que pour les GPU série 30xx et suivantes
 
 ## Install
-```
-wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.2.0/py-nvtool.py
-```
 
 #### Linux
 
 ```
+wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.2.0/py-nvtool.py
 chmod +x py-nvtool.py
-cp py-nvtool.py /usr/sbin/
+cp py-nvtool.py /usr/sbin/py-nvtool
+```
 
-sudo py-nvtool.py [options]
+#### Windows
+
+Il faut installer Python3.
+
+```
+wget https://github.com/Akisoft41/py-nvtool/releases/download/v0.2.0/py-nvtool.py
 ```
 
 
 ## Run
-```
-py-nvtool.py [options]
 
+#### Linux
+```
+sudo py-nvtool [options]
+```
+
+#### Windows
+Il faut démarrer un Terminal en mode administrateur
+```
+py py-nvtool.py [options]
+```
+
+#### Options
+```
   -i|--index NUM                Query specified GPU only
   -a|--all                      Get GPU infos 
   --setpl NUM                   Set GPU power limit (W), 0 - default
@@ -32,11 +47,12 @@ py-nvtool.py [options]
   --setmemoffset NUM            Set MEM clocks offset (MHz), 0 - default
 ```
 
-### Exemple
+#### Exemple
 
 ```
-py-nvtool.py --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
+sudo py-nvtool.py --setclocks 1400 --setcoreoffset 200 --setmem 6800 --setmemoffset 2000 --setpl 120 --setfan 50
 ```
+
 
 ## Docs
 
